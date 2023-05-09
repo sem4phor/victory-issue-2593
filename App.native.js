@@ -1,6 +1,5 @@
 import React from 'react';
-import { VictoryChart, VictoryLine, VictoryTooltip } from 'victory';
-import {registerRootComponent} from 'expo';
+import { VictoryChart, VictoryLine, VictoryTooltip } from 'victory-native';
 
 const Chart = () => {
   const sampleData = [
@@ -11,16 +10,14 @@ const Chart = () => {
   ]
 
   return (
-    <div style={{display: 'flex', maxWidth: '800px' }}>
-    <VictoryChart>
+    <VictoryChart width={250}>
       <VictoryLine
         data={sampleData}
         labels={datum => datum.x}
         labelComponent={<VictoryTooltip constrainToVisibleArea={true} active />}
       />
     </VictoryChart>
-    </div>
   )
 }
 
-registerRootComponent(Chart);
+export default Chart
